@@ -7,8 +7,6 @@ import 'package:whatsapp_clone_flutter/features/landing/screens/landing_screen.d
 import 'package:whatsapp_clone_flutter/firebase_options.dart';
 import 'package:whatsapp_clone_flutter/router.dart';
 import 'package:whatsapp_clone_flutter/screens/mobile_layout_screen.dart';
-import 'package:whatsapp_clone_flutter/screens/web_layout_screen.dart';
-import 'package:whatsapp_clone_flutter/utils/responsive_layout.dart';
 import 'colors.dart';
 import 'common/widgets/loader.dart';
 
