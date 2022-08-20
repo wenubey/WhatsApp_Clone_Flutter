@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:whatsapp_clone_flutter/common/enums/message_enum.dart';
 
 class Message {
@@ -8,8 +11,14 @@ class Message {
   final DateTime timeSent;
   final String messageId;
   final bool isSeen;
+  final String repliedMessage;
+  final String repliedTo;
+  final MessageEnum repliedMessageType;
 
   Message({
+    required this.repliedMessage,
+    required this.repliedTo,
+    required this.repliedMessageType,
     required this.senderId,
     required this.receiverId,
     required this.text,
@@ -28,11 +37,14 @@ class Message {
       timeSent: DateTime.fromMillisecondsSinceEpoch(map['timeSent']),
       messageId: map['messageId'] ?? '',
       isSeen: map['isSeen'] ?? false,
+      repliedMessage: map['repliedMessage'] ?? '',
+      repliedTo: map['repliedTo'] ?? '',
+      repliedMessageType: (map['repliedMessageType'] as String).toEnum(),
     );
   }
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       'senderId': senderId,
       'receiverId': receiverId,
       'text': text,
@@ -40,6 +52,9 @@ class Message {
       'timeSent': timeSent.millisecondsSinceEpoch,
       'messageId': messageId,
       'isSeen': isSeen,
+      'repliedMessage': repliedMessage,
+      'repliedTo': repliedTo,
+      'repliedMessageType': repliedMessageType.type,
     };
   }
 }

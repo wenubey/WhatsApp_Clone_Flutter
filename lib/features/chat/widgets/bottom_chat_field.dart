@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,8 +8,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:whatsapp_clone_flutter/colors.dart';
 import 'package:whatsapp_clone_flutter/common/enums/message_enum.dart';
+import 'package:whatsapp_clone_flutter/common/providers/message_replay_provider.dart';
 import 'package:whatsapp_clone_flutter/common/utils/utils.dart';
 import 'package:whatsapp_clone_flutter/features/chat/controller/chat_controller.dart';
+import 'package:whatsapp_clone_flutter/features/chat/widgets/message_reply_preview.dart';
 
 class BottomChatField extends ConsumerStatefulWidget {
   final String receiverUserId;
@@ -153,8 +154,11 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
 
   @override
   Widget build(BuildContext context) {
+    final messageReply = ref.watch(messageReplyProvider);
+    final isShowMessageReply = messageReply != null;
     return Column(
       children: [
+        isShowMessageReply ? const MessageReplyPreview() : const SizedBox(),
         Row(
           children: [
             Expanded(
