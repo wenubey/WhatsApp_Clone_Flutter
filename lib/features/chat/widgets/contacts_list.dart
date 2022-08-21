@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:whatsapp_clone_flutter/colors.dart';
 import 'package:whatsapp_clone_flutter/common/widgets/loader.dart';
-import 'package:whatsapp_clone_flutter/info.dart';
 import 'package:whatsapp_clone_flutter/features/chat/screens/mobile_chat_screen.dart';
 import 'package:whatsapp_clone_flutter/models/chat_contact.dart';
 import '../controller/chat_controller.dart';
@@ -31,15 +30,12 @@ class ContactsList extends ConsumerWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          MobileChatScreen.routeName,
-                          arguments: {
-                            'name': chatContactData.name,
-                            'uid': chatContactData.contactId,
-                            'profilePic': chatContactData.profilePic,
-                          }
-                        );
+                        Navigator.pushNamed(context, MobileChatScreen.routeName,
+                            arguments: {
+                              'name': chatContactData.name,
+                              'uid': chatContactData.contactId,
+                              'profilePic': chatContactData.profilePic,
+                            });
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),

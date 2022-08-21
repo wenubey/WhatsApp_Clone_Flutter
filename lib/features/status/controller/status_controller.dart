@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone_flutter/features/auth/controller/auth_controller.dart';
 import 'package:whatsapp_clone_flutter/features/status/repository/status_repository.dart';
+import 'package:whatsapp_clone_flutter/models/status.dart';
 
 final statusControllerProvider = Provider(
   (ref) {
@@ -32,5 +33,10 @@ class StatusController {
         );
       },
     );
+  }
+
+  Future<List<Status>> getStatus(BuildContext context) async {
+    List<Status> statuses = await statusRepository.getStatus(context);
+    return statuses;
   }
 }
