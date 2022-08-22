@@ -9,6 +9,7 @@ import 'package:whatsapp_clone_flutter/common/providers/message_replay_provider.
 import 'package:whatsapp_clone_flutter/common/repositories/common_firebase_storage_repository.dart';
 import 'package:whatsapp_clone_flutter/common/utils/utils.dart';
 import 'package:whatsapp_clone_flutter/models/chat_contact.dart';
+import 'package:whatsapp_clone_flutter/models/group.dart';
 import 'package:whatsapp_clone_flutter/models/message.dart';
 import 'package:whatsapp_clone_flutter/models/user_model.dart';
 
@@ -52,6 +53,19 @@ class ChatRepository {
         );
       }
       return contacts;
+    });
+  }
+
+  Stream<List<Group>> getChatGroups() {
+    return firestore.collection('groups').snapshots().map((event) {
+      List<Group> groups = [];
+      for (var document in event.docs) {
+        var group = Group.fromMap(document.data());
+        if (group.membersUid.contains(auth.currentUser!.uid)) {
+          groups.add(group);
+        }
+      }
+      return groups;
     });
   }
 

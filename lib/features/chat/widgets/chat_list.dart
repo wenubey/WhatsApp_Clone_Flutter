@@ -13,8 +13,11 @@ import 'package:whatsapp_clone_flutter/features/chat/widgets/my_message_card.dar
 
 class ChatList extends ConsumerStatefulWidget {
   final String receiverUserId;
+  final bool isGroupChat;
 
-  const ChatList({required this.receiverUserId, Key? key}) : super(key: key);
+  const ChatList(
+      {required this.receiverUserId, required this.isGroupChat, Key? key})
+      : super(key: key);
 
   @override
   ConsumerState createState() => _ChatListState();
