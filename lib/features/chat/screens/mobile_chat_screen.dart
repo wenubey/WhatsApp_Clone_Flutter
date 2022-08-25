@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_clone_flutter/colors.dart';
+import 'package:whatsapp_clone_flutter/common/utils/colors.dart';
 import 'package:whatsapp_clone_flutter/common/widgets/loader.dart';
+import 'package:whatsapp_clone_flutter/features/call/controller/call_controller.dart';
 import 'package:whatsapp_clone_flutter/models/user_model.dart';
 import 'package:whatsapp_clone_flutter/features/chat/widgets/chat_list.dart';
 
@@ -13,13 +14,25 @@ class MobileChatScreen extends ConsumerWidget {
   final String name;
   final String uid;
   final bool isGroupChat;
+  final String profilePic;
 
   const MobileChatScreen({
     Key? key,
     required this.name,
     required this.uid,
     required this.isGroupChat,
+    required this.profilePic,
   }) : super(key: key);
+
+  void createCall(WidgetRef ref, BuildContext context) {
+    ref.read(callControllerProvider).createCall(
+          context,
+          name,
+          uid,
+          profilePic,
+          isGroupChat,
+        );
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -58,7 +71,7 @@ class MobileChatScreen extends ConsumerWidget {
         centerTitle: false,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => createCall(ref, context),
             icon: const Icon(Icons.video_call),
           ),
           IconButton(

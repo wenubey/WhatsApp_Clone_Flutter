@@ -45,8 +45,13 @@ class _ChatListState extends ConsumerState<ChatList> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<Message>>(
-        stream:
-            ref.read(chatControllerProvider).chatStream(widget.receiverUserId),
+        stream: widget.isGroupChat
+            ? ref
+                .read(chatControllerProvider)
+                .groupChatStream(widget.receiverUserId)
+            : ref
+                .read(chatControllerProvider)
+                .chatStream(widget.receiverUserId),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Loader();

@@ -1,6 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
 import 'package:whatsapp_clone_flutter/common/enums/message_enum.dart';
 
 class Message {

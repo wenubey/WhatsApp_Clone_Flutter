@@ -8,7 +8,7 @@ import 'package:whatsapp_clone_flutter/common/utils/utils.dart';
 import 'package:whatsapp_clone_flutter/features/auth/screens/otp_screen.dart';
 import 'package:whatsapp_clone_flutter/features/auth/screens/user_information_screen.dart';
 import 'package:whatsapp_clone_flutter/models/user_model.dart';
-import 'package:whatsapp_clone_flutter/screens/mobile_layout_screen.dart';
+import 'package:whatsapp_clone_flutter/mobile_layout_screen.dart';
 
 final authRepositoryProvider = Provider(
   (ref) => AuthRepository(
@@ -102,7 +102,7 @@ class AuthRepository {
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-          builder: (context) => MobileLayoutScreen(),
+          builder: (context) => const MobileLayoutScreen(),
         ),
         (route) => false,
       );
@@ -121,7 +121,7 @@ class AuthRepository {
 
   void setUserState(AppLifecycleState state) async {
     bool isOnline = false;
-    if(state == AppLifecycleState.resumed) {
+    if (state == AppLifecycleState.resumed) {
       isOnline = true;
     } else {
       isOnline = false;

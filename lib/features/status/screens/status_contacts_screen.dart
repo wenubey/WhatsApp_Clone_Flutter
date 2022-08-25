@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_clone_flutter/colors.dart';
+import 'package:whatsapp_clone_flutter/common/utils/colors.dart';
 import 'package:whatsapp_clone_flutter/common/widgets/loader.dart';
 import 'package:whatsapp_clone_flutter/features/status/controller/status_controller.dart';
 import 'package:whatsapp_clone_flutter/features/status/screens/status_screen.dart';

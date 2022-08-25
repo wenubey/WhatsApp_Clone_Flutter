@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_clone_flutter/colors.dart';
+import 'package:whatsapp_clone_flutter/common/utils/colors.dart';
 import 'package:whatsapp_clone_flutter/common/utils/utils.dart';
 import 'package:whatsapp_clone_flutter/features/group/controller/group_controller.dart';
 import 'package:whatsapp_clone_flutter/features/group/widgets/select_contacts_group.dart';

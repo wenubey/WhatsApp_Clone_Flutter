@@ -6,8 +6,8 @@ import 'package:whatsapp_clone_flutter/features/auth/controller/auth_controller.
 import 'package:whatsapp_clone_flutter/features/landing/screens/landing_screen.dart';
 import 'package:whatsapp_clone_flutter/firebase_options.dart';
 import 'package:whatsapp_clone_flutter/router.dart';
-import 'package:whatsapp_clone_flutter/screens/mobile_layout_screen.dart';
-import 'colors.dart';
+import 'package:whatsapp_clone_flutter/mobile_layout_screen.dart';
+import 'common/utils/colors.dart';
 import 'common/widgets/loader.dart';
 
 void main() async {

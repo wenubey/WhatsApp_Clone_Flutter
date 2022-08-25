@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swipe_to/swipe_to.dart';
-import 'package:whatsapp_clone_flutter/colors.dart';
+import 'package:whatsapp_clone_flutter/common/utils/colors.dart';
 import 'package:whatsapp_clone_flutter/common/enums/message_enum.dart';
 import 'package:whatsapp_clone_flutter/features/chat/widgets/display_file.dart';
 

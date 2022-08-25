@@ -37,10 +37,15 @@ class ChatController {
     return chatRepository.getChatStream(receiverUserId);
   }
 
+  Stream<List<Message>> groupChatStream(String groupId) {
+    return chatRepository.getGroupChatStream(groupId);
+  }
+
   void sendTextMessage(
     BuildContext context,
     String text,
     String receiverUserId,
+    bool isGroupChat,
   ) {
     final messageReply = ref.read(messageReplyProvider);
     ref.read(userDataAuthProvider).whenData(
@@ -50,6 +55,7 @@ class ChatController {
             receiverUserId: receiverUserId,
             senderUser: senderUser!,
             messageReply: messageReply,
+            isGroupChat: isGroupChat,
           ),
         );
     ref.read(messageReplyProvider.state).update((state) => null);
@@ -60,6 +66,7 @@ class ChatController {
     File file,
     String receiverUserId,
     MessageEnum type,
+    bool isGroupChat,
   ) {
     final messageReply = ref.read(messageReplyProvider);
     ref.read(userDataAuthProvider).whenData(
@@ -71,6 +78,7 @@ class ChatController {
             messageType: type,
             ref: ref,
             messageReply: messageReply,
+            isGroupChat: isGroupChat,
           ),
         );
     ref.read(messageReplyProvider.state).update((state) => null);
@@ -80,6 +88,7 @@ class ChatController {
     BuildContext context,
     String gifUrl,
     String receiverUserId,
+    bool isGroupChat,
   ) {
     // https://i.giphy.com/media/fn2kee68mheQgMtz1K/200.gif
     final messageReply = ref.read(messageReplyProvider);
@@ -93,6 +102,7 @@ class ChatController {
             receiverUserId: receiverUserId,
             senderUser: senderUser!,
             messageReply: messageReply,
+            isGroupChat: isGroupChat,
           ),
         );
     ref.read(messageReplyProvider.state).update((state) => null);

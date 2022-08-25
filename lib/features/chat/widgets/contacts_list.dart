@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:whatsapp_clone_flutter/colors.dart';
+import 'package:whatsapp_clone_flutter/common/utils/colors.dart';
 import 'package:whatsapp_clone_flutter/common/widgets/loader.dart';
 import 'package:whatsapp_clone_flutter/features/chat/screens/mobile_chat_screen.dart';
 import 'package:whatsapp_clone_flutter/models/chat_contact.dart';
@@ -40,6 +40,7 @@ class ContactsList extends ConsumerWidget {
                                     'name': groupData.name,
                                     'uid': groupData.groupId,
                                     'isGroupChat': true,
+                                    'profilePic': groupData.groupPic,
                                   });
                             },
                             child: Padding(
@@ -101,6 +102,7 @@ class ContactsList extends ConsumerWidget {
                                     'name': chatContactData.name,
                                     'uid': chatContactData.contactId,
                                     'isGroupChat': false,
+                                    'profilePic': chatContactData.profilePic,
                                   });
                             },
                             child: Padding(

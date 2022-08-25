@@ -9,7 +9,7 @@ import 'package:giphy_get/giphy_get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'package:whatsapp_clone_flutter/colors.dart';
+import 'package:whatsapp_clone_flutter/common/utils/colors.dart';
 import 'package:whatsapp_clone_flutter/common/enums/message_enum.dart';
 import 'package:whatsapp_clone_flutter/common/providers/message_replay_provider.dart';
 import 'package:whatsapp_clone_flutter/common/utils/utils.dart';
@@ -61,6 +61,7 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
             context,
             _messageController.text.trim(),
             widget.receiverUserId,
+            widget.isGroupChat,
           );
       setState(() {
         _messageController.clear();
@@ -95,6 +96,7 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
           file,
           widget.receiverUserId,
           type,
+          widget.isGroupChat,
         );
   }
 
@@ -105,6 +107,7 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
             context,
             gif.url!,
             widget.receiverUserId,
+            widget.isGroupChat,
           );
     }
   }

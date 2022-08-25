@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_clone_flutter/colors.dart';
+import 'package:whatsapp_clone_flutter/common/utils/colors.dart';
 import 'package:whatsapp_clone_flutter/common/utils/utils.dart';
 import 'package:whatsapp_clone_flutter/features/auth/controller/auth_controller.dart';
 import 'package:whatsapp_clone_flutter/features/chat/widgets/contacts_list.dart';
 import 'package:whatsapp_clone_flutter/features/group/screens/create_group_screen.dart';
 import 'package:whatsapp_clone_flutter/features/status/screens/confirm_status_screen.dart';
 import 'package:whatsapp_clone_flutter/features/status/screens/status_contacts_screen.dart';
-import '../features/select_contacts/screens/select_contacts_screen.dart';
+import 'features/select_contacts/screens/select_contacts_screen.dart';
 
 class MobileLayoutScreen extends ConsumerStatefulWidget {
   const MobileLayoutScreen({Key? key}) : super(key: key);
